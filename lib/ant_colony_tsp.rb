@@ -81,7 +81,7 @@ module AntColonyTsp
     def update_phero_global(phero, candidate, decay)
       candidate[:vector].each_with_index do |row, i|
         col = (i == candidate[:vector].size - 1) ? candidate[:vector][0] : candidate[:vector][i + 1]
-        value = ((1 - c_local_phero) * phero[row][col]) + (c_local_phero * init_phero)
+        value = ((1 - decay) * phero[row][col]) + (decay * (1 / candidate[:cost]))
         phero[row][col] = value
         phero[col][row] = value
       end
@@ -111,8 +111,8 @@ module AntColonyTsp
           best = cand if cand[:cost] < best[:cost]
           update_phero_local(phero, cand, c_local_phero, init_phero)
         end
-          update_phero_global(phero, cand, decay)
-          puts " > iteration #{iter + 1}, best #{best[:cost]}"
+        update_phero_global(phero, best, decay)
+        puts " > iteration #{iter + 1}, best #{best[:cost]}"
       end
       best
     end
