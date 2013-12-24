@@ -1,6 +1,6 @@
 # AntColonyTsp
 
-TODO: Write a gem description
+    Ant colony to solve travelling salesman
 
 ## Installation
 
