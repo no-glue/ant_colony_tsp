@@ -18,7 +18,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    AntColonyTsp::AntColonyTsp.new.search([[565,575],[25,185]], 100, 10, 0.1, 2.5, 0.1, 0.9)
+    100 - max iterations
+    10 - number of ants
+    0.1 - decay
+    2.5 - heur
+    0.1 - local pheromone
+    0.9 - greedy
 
 ## Contributing
 
